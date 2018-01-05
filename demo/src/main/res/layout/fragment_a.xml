@@ -33,4 +33,50 @@
         android:layout_toRightOf="@+id/last16View"
         android:text="@string/search"
         android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/last16View"
+        android:layout_alignStart="@+id/last16View"
+        android:layout_below="@+id/searchButton"
+        android:layout_marginTop="66dp"
+        android:text="@string/companyName"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/companyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/companyName"
+        android:layout_marginLeft="82dp"
+        android:layout_marginStart="82dp"
+        android:layout_toEndOf="@+id/companyName"
+        android:layout_toRightOf="@+id/companyName"
+        android:textSize="24sp"
+        android:text="@string/unknown" />
+
+    <TextView
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/companyName"
+        android:layout_alignStart="@+id/companyName"
+        android:layout_below="@+id/companyName"
+        android:layout_marginTop="28dp"
+        android:textSize="24sp"
+        android:text="@string/homeLocation" />
+
+    <TextView
+        android:id="@+id/homeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/companyText"
+        android:layout_alignStart="@+id/companyText"
+        android:layout_alignTop="@+id/home"
+        android:text="@string/unknown"
+        android:textSize="24sp" />
+
+
 </RelativeLayout>

@@ -25,10 +25,7 @@ public class FragmentA extends Fragment {
                 Toast.makeText(getActivity(), mLast16Text.getText(), Toast.LENGTH_LONG).show();
             }
         });
-
         return view;
-
-
 
     }
 

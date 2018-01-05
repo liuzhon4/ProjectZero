@@ -37,21 +37,21 @@ public class FrontActivity extends AppCompatActivity {
 
         tabLayout.initialize(viewPager, getSupportFragmentManager(), fragmentList);
 
-        tabLayout.setTabOneOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "Welcome to SpaceTabLayout", Snackbar.LENGTH_SHORT);
+//        tabLayout.setTabOneOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Snackbar snackbar = Snackbar
+//                        .make(coordinatorLayout, "Welcome to SpaceTabLayout", Snackbar.LENGTH_SHORT);
+//
+//                snackbar.show();
+//            }
+//        });
 
-                snackbar.show();
-            }
-        });
-
-        tabLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplication(), "" + tabLayout.getCurrentPosition(), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        tabLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplication(), "" + tabLayout.getCurrentPosition(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }
