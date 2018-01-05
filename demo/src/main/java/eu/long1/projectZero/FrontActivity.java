@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Toast;
 
@@ -53,5 +54,7 @@ public class FrontActivity extends AppCompatActivity {
 //                Toast.makeText(getApplication(), "" + tabLayout.getCurrentPosition(), Toast.LENGTH_SHORT).show();
 //            }
 //        });
+
+
     }
 }
