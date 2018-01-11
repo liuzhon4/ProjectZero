@@ -261,6 +261,7 @@ public class SpaceTabLayout extends RelativeLayout {
             throw new IllegalArgumentException("You have " + numberOfTabs + " tabs.");
         viewPager.setAdapter(new PagerAdapter(fragmentManager, fragments));
 
+
         tabLayout.setupWithViewPager(viewPager);
 
         getViewTreeObserver().addOnGlobalLayoutListener(

@@ -16,6 +16,8 @@ public class FragmentA extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(false);
+        setMenuVisibility(false);
         view = inflater.inflate(R.layout.fragment_a, container, false);
         mButton = (Button) view.findViewById(R.id.searchButton);
         mLast16Text = (EditText) view.findViewById(R.id.last16View);
@@ -28,6 +30,7 @@ public class FragmentA extends Fragment {
         return view;
 
     }
+
 
 
 }
