@@ -46,6 +46,7 @@
     <string name="DB3">质监站走私烟条码库</string>
     <string name="update">更新数据</string>
     <string name="print">打印</string>
+    <string name="addNew">添加</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

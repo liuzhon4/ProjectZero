@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean authentication(String badgeNum, String pwd) {
+//        some authentication logic
         return badgeNum.equals("364052") && pwd.equals("1");
     }
 }
