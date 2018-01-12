@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="eu.long1.projectZero.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,8 +16,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="eu.long1.projectZero.FrontActivity"
+            android:name=".FrontActivity"
             android:label="@string/app_name" />
+        <activity
+            android:name=".ListViewActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="@string/enterInfo"
+            android:parentActivityName=".FrontActivity" />
     </application>
 
 </manifest>
