@@ -49,6 +49,7 @@
     <string name="addNew">添加</string>
     <string name="enterInfo">现场执法信息录入</string>
     <string name="finish">完成</string>
+    <string name="testEntry">测试</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
