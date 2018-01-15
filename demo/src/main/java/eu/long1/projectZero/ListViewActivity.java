@@ -2,11 +2,15 @@ package eu.long1.projectZero;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.yuyh.easyadapter.abslistview.EasyLVAdapter;
 import com.yuyh.easyadapter.recyclerview.EasyRVAdapter;
@@ -29,7 +33,9 @@ public class ListViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_list_view);
+
         listView = (ListView) findViewById(R.id.lv);
         mLVAdapter = new ListViewAdapter(this, list, R.layout.item_list_view_1, R.layout.item_list_view_1);
         listView.setAdapter(mLVAdapter);
@@ -38,7 +44,6 @@ public class ListViewActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case (0):
-//                        Toast.makeText(getApplicationContext(), "pressed position " + position, Toast.LENGTH_LONG).show();
                         View single = listView.getChildAt(0);
                         ImageView imgView = (ImageView) single.findViewById(R.id.img);
                         imgView.setImageResource(R.drawable.ic_check_box);
@@ -53,7 +58,22 @@ public class ListViewActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_finish, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_finish:
+                Toast.makeText(getApplicationContext(), "finish button pressed", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
