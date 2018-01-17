@@ -19,7 +19,7 @@
             android:name=".FrontActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".ListViewActivity"
+            android:name=".EnterInfoListActivity"
             android:alwaysRetainTaskState="true"
             android:label="@string/enterInfo"
             android:parentActivityName=".FrontActivity" />

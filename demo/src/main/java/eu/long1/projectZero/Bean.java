@@ -14,4 +14,9 @@ public class Bean {
         this.imgRes = imgRes;
         this.name = name;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
 }

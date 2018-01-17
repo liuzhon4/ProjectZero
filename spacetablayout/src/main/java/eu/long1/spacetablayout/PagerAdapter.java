@@ -26,7 +26,7 @@ class PagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments;
 
-    PagerAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public PagerAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }

@@ -39,6 +39,12 @@ public class FrontActivity extends AppCompatActivity {
         tabLayout = (SpaceTabLayout) findViewById(R.id.spaceTabLayout);
 
         tabLayout.initialize(viewPager, getSupportFragmentManager(), fragmentList);
+//        tabLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "" + tabLayout.getCurrentPosition(), Toast.LENGTH_LONG).show();
+//            }
+//        });
 
     }
 

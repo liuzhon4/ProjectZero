@@ -11,9 +11,9 @@ import java.util.List;
  * @author yuyh.
  * @date 2016/7/21.
  */
-public class ListViewAdapter extends EasyLVAdapter<Bean> {
+public class EnterInfoListAdapter extends EasyLVAdapter<Bean> {
 
-    public ListViewAdapter(Context context, List<Bean> list, int... layoutIds) {
+    public EnterInfoListAdapter(Context context, List<Bean> list, int... layoutIds) {
         super(context, list, layoutIds);
     }
 
