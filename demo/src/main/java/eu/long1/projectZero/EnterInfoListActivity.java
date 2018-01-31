@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,6 +17,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
     private ListView listView;
     private EnterInfoListAdapter mLVAdapter;
+    private static final int SECOND_ACTIVITY_REQUEST_CODE = 0;
 
     private List<Bean> list = Arrays.asList(
             new Bean(R.drawable.ic_check_box_outline, "案件性质、地区、案卷号"),
@@ -48,38 +48,38 @@ public class EnterInfoListActivity extends AppCompatActivity {
 //                                "position " + position + ": " +
 //                                list.get(position).getName(), Toast.LENGTH_LONG).show();
                         Intent i = new Intent(getApplicationContext(), CharacterActivity.class);
-                        startActivity(i);
+//                        startActivity(i);
+                        startActivityForResult(i, SECOND_ACTIVITY_REQUEST_CODE);
                     case (1):
-                        Toast.makeText(getApplicationContext(),
-                                "position " + position + ": " +
-                                        list.get(position).getName(), Toast.LENGTH_LONG).show();
                     case (2):
-                        Toast.makeText(getApplicationContext(),
-                                "position " + position + ": " +
-                                        list.get(position).getName(), Toast.LENGTH_LONG).show();
                     case (3):
-                        Toast.makeText(getApplicationContext(),
-                                "position " + position + ": " +
-                                        list.get(position).getName(), Toast.LENGTH_LONG).show();
                     case (4):
-                        Toast.makeText(getApplicationContext(),
-                                "position " + position + ": " +
-                                        list.get(position).getName(), Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SECOND_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                String returnString = data.getStringExtra("firstLine");
+                Toast.makeText(getApplicationContext(), returnString, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_finish, menu);
+        getMenuInflater().inflate(R.menu.menu_all_finish, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_finish:
+            case R.id.action_all_finish:
                 Toast.makeText(getApplicationContext(), "finish button pressed", Toast.LENGTH_LONG).show();
                 return true;
             default:
