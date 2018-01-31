@@ -23,6 +23,12 @@
             android:alwaysRetainTaskState="true"
             android:label="@string/enterInfo"
             android:parentActivityName=".FrontActivity" />
+        <activity
+            android:name=".CharacterActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="案件性质、地区、案卷号"
+            android:parentActivityName=".EnterInfoListActivity"
+            />
     </application>
 
 </manifest>

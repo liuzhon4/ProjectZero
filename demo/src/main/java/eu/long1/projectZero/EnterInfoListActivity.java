@@ -1,5 +1,6 @@
 package eu.long1.projectZero;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -39,12 +40,15 @@ public class EnterInfoListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case (0):
-                        View single = listView.getChildAt(0);
-                        ImageView imgView = (ImageView) single.findViewById(R.id.img);
-                        imgView.setImageResource(R.drawable.ic_check_box);
-                        Toast.makeText(getApplicationContext(),
-                                "position " + position + ": " +
-                                list.get(position).getName(), Toast.LENGTH_LONG).show();
+                        //how to change view pic
+//                        View single = listView.getChildAt(0);
+//                        ImageView imgView = (ImageView) single.findViewById(R.id.img);
+//                        imgView.setImageResource(R.drawable.ic_check_box);
+//                        Toast.makeText(getApplicationContext(),
+//                                "position " + position + ": " +
+//                                list.get(position).getName(), Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(getApplicationContext(), CharacterActivity.class);
+                        startActivity(i);
                     case (1):
                         Toast.makeText(getApplicationContext(),
                                 "position " + position + ": " +

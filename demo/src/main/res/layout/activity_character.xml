@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/character"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请选择案件性质"
+        android:textColorHint="#05ab9a"
+
+        app:met_floatingLabel="normal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="22dp" />
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请选择地区"
+        android:textColorHint="#05ab9a"
+
+        app:met_floatingLabel="normal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="22dp" />
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/fileNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入案卷号"
+        app:met_baseColor="#085c53"
+        app:met_textColorHint="#AAAAAA"
+        app:met_textColor="#111111"
+        app:met_floatingLabelTextColor="#222222"
+        app:met_floatingLabel="normal"
+        android:inputType="phone"/>
+
+</LinearLayout>
