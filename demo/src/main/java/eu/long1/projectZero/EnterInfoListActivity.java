@@ -3,13 +3,16 @@ package eu.long1.projectZero;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +20,10 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
     private ListView listView;
     private EnterInfoListAdapter mLVAdapter;
-    private static final int SECOND_ACTIVITY_REQUEST_CODE = 0;
+    private ArrayList<Boolean> checkList = new ArrayList<>(
+            Arrays.asList(false, false, false, false, false));
+    private String firstReturnLine, secondReturnLine;
+    private static final int ACTIVITY_REQUEST_CODE_ZERO = 0;
 
     private List<Bean> list = Arrays.asList(
             new Bean(R.drawable.ic_check_box_outline, "案件性质、地区、案卷号"),
@@ -44,12 +50,8 @@ public class EnterInfoListActivity extends AppCompatActivity {
 //                        View single = listView.getChildAt(0);
 //                        ImageView imgView = (ImageView) single.findViewById(R.id.img);
 //                        imgView.setImageResource(R.drawable.ic_check_box);
-//                        Toast.makeText(getApplicationContext(),
-//                                "position " + position + ": " +
-//                                list.get(position).getName(), Toast.LENGTH_LONG).show();
                         Intent i = new Intent(getApplicationContext(), CharacterActivity.class);
-//                        startActivity(i);
-                        startActivityForResult(i, SECOND_ACTIVITY_REQUEST_CODE);
+                        startActivityForResult(i, ACTIVITY_REQUEST_CODE_ZERO);
                     case (1):
                     case (2):
                     case (3):
@@ -62,10 +64,13 @@ public class EnterInfoListActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == SECOND_ACTIVITY_REQUEST_CODE) {
+        if (requestCode == ACTIVITY_REQUEST_CODE_ZERO) {
             if (resultCode == RESULT_OK) {
-                String returnString = data.getStringExtra("firstLine");
-                Toast.makeText(getApplicationContext(), returnString, Toast.LENGTH_LONG).show();
+                firstReturnLine = data.getStringExtra("firstLine");
+                View single = listView.getChildAt(0);
+                ImageView imgView = (ImageView) single.findViewById(R.id.img);
+                imgView.setImageResource(R.drawable.ic_check_box);
+                checkList.set(0, true);
             }
         }
     }
@@ -81,6 +86,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_all_finish:
                 Toast.makeText(getApplicationContext(), "finish button pressed", Toast.LENGTH_LONG).show();
+                Log.w("finish", "button pressed");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
