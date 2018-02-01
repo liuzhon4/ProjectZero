@@ -29,6 +29,11 @@
             android:label="案件性质、地区、案卷号"
             android:parentActivityName=".EnterInfoListActivity"
             />
+        <activity android:name=".ReasonListActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="案由"
+            android:parentActivityName=".EnterInfoListActivity"
+            />
     </application>
 
 </manifest>

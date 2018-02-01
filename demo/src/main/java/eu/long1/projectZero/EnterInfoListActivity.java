@@ -44,19 +44,19 @@ public class EnterInfoListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case (0):
                         //how to change view pic
 //                        View single = listView.getChildAt(0);
 //                        ImageView imgView = (ImageView) single.findViewById(R.id.img);
 //                        imgView.setImageResource(R.drawable.ic_check_box);
-                        Intent i = new Intent(getApplicationContext(), CharacterActivity.class);
-                        startActivityForResult(i, ACTIVITY_REQUEST_CODE_ZERO);
-                    case (1):
-                    case (2):
-                    case (3):
-                    case (4):
-                }
+                    if (list.get(position).getName().equals("案件性质、地区、案卷号")) {
+                        Intent i0 = new Intent(getApplicationContext(), CharacterActivity.class);
+                        startActivityForResult(i0, ACTIVITY_REQUEST_CODE_ZERO);
+                    }
+                    if(list.get(position).getName().equals("案由")) {
+                        Intent i1 = new Intent(getApplicationContext(), ReasonListActivity.class);
+                        startActivity(i1);
+                    }
+
             }
         });
     }
