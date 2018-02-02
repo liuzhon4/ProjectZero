@@ -24,6 +24,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
             Arrays.asList(false, false, false, false, false));
     private String firstReturnLine, secondReturnLine;
     private static final int ACTIVITY_REQUEST_CODE_ZERO = 0;
+    private static final int ACTIVITY_REQUEST_CODE_ONE = 1;
 
     private List<Bean> list = Arrays.asList(
             new Bean(R.drawable.ic_check_box_outline, "案件性质、地区、案卷号"),
@@ -44,17 +45,13 @@ public class EnterInfoListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        //how to change view pic
-//                        View single = listView.getChildAt(0);
-//                        ImageView imgView = (ImageView) single.findViewById(R.id.img);
-//                        imgView.setImageResource(R.drawable.ic_check_box);
                     if (list.get(position).getName().equals("案件性质、地区、案卷号")) {
                         Intent i0 = new Intent(getApplicationContext(), CharacterActivity.class);
                         startActivityForResult(i0, ACTIVITY_REQUEST_CODE_ZERO);
                     }
                     if(list.get(position).getName().equals("案由")) {
                         Intent i1 = new Intent(getApplicationContext(), ReasonListActivity.class);
-                        startActivity(i1);
+                        startActivityForResult(i1, ACTIVITY_REQUEST_CODE_ONE);
                     }
 
             }
@@ -67,10 +64,15 @@ public class EnterInfoListActivity extends AppCompatActivity {
         if (requestCode == ACTIVITY_REQUEST_CODE_ZERO) {
             if (resultCode == RESULT_OK) {
                 firstReturnLine = data.getStringExtra("firstLine");
-                View single = listView.getChildAt(0);
-                ImageView imgView = (ImageView) single.findViewById(R.id.img);
-                imgView.setImageResource(R.drawable.ic_check_box);
-                checkList.set(0, true);
+                setImageAndCheckList(0, true);
+            }
+        }
+        if (requestCode == ACTIVITY_REQUEST_CODE_ONE) {
+            if (resultCode == RESULT_OK) {
+                secondReturnLine = data.getStringExtra("secondLine");
+                setImageAndCheckList(1, true);
+            } else {
+                setImageAndCheckList(1, false);
             }
         }
     }
@@ -91,5 +93,18 @@ public class EnterInfoListActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void setImageAndCheckList(Integer index, Boolean state) {
+        View single = listView.getChildAt(index);
+        ImageView imgView = (ImageView) single.findViewById(R.id.img);
+        if (state) {
+            imgView.setImageResource(R.drawable.ic_check_box);
+            checkList.set(index, true);
+        } else {
+            imgView.setImageResource(R.drawable.ic_check_box_outline);
+            checkList.set(index, false);
+        }
+
     }
 }
