@@ -1,8 +1,8 @@
 package eu.long1.projectZero;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EnterInfoListActivity extends AppCompatActivity {
+public class PhotoActivity extends AppCompatActivity {
 
     private ListView listView;
     private EnterInfoListAdapter mLVAdapter;
@@ -26,15 +26,14 @@ public class EnterInfoListActivity extends AppCompatActivity {
     private static final int ACTIVITY_REQUEST_CODE_ZERO = 0;
     private static final int ACTIVITY_REQUEST_CODE_ONE = 1;
     private static final int ACTIVITY_REQUEST_CODE_TWO = 2;
-    private static final int ACTIVITY_REQUEST_CODE_THIRD = 3;
-    private static final int ACTIVITY_REQUEST_CODE_FORTH = 4;
 
     private List<Bean> list = Arrays.asList(
-            new Bean(R.drawable.ic_check_box_outline, "案件性质、地区、案卷号"),
-            new Bean(R.drawable.ic_check_box_outline, "案由"),
-            new Bean(R.drawable.ic_check_box_outline, "当事人信息"),
-            new Bean(R.drawable.ic_check_box_outline, "涉案卷烟登记"),
-            new Bean(R.drawable.ic_check_box_outline, "拍照"));
+            new Bean(R.drawable.ic_check_box_outline, "身份证照片"),
+            new Bean(R.drawable.ic_check_box_outline, "卷烟照片"),
+            new Bean(R.drawable.ic_check_box_outline, "工商营业执照照片"),
+            new Bean(R.drawable.ic_check_box_outline, "烟草专卖许可证照片"),
+            new Bean(R.drawable.ic_check_box_outline, "待定"),
+            new Bean(R.drawable.ic_check_box_outline, "待定"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,21 +47,20 @@ public class EnterInfoListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    if (list.get(position).getName().equals("案件性质、地区、案卷号")) {
-                        Intent i0 = new Intent(getApplicationContext(), CharacterActivity.class);
-                        startActivityForResult(i0, ACTIVITY_REQUEST_CODE_ZERO);
+                    if (list.get(position).getName().equals("身份证照片")) {
+                        Toast.makeText(getApplicationContext(), list.get(position).getName(), Toast.LENGTH_LONG).show();
+//                        Intent i0 = new Intent(getApplicationContext(), CharacterActivity.class);
+//                        startActivityForResult(i0, ACTIVITY_REQUEST_CODE_ZERO);
                     }
-                    if(list.get(position).getName().equals("案由")) {
-                        Intent i1 = new Intent(getApplicationContext(), ReasonListActivity.class);
-                        startActivityForResult(i1, ACTIVITY_REQUEST_CODE_ONE);
+                    if(list.get(position).getName().equals("卷烟照片")) {
+                        Toast.makeText(getApplicationContext(), list.get(position).getName(), Toast.LENGTH_LONG).show();
+//                        Intent i1 = new Intent(getApplicationContext(), ReasonListActivity.class);
+//                        startActivityForResult(i1, ACTIVITY_REQUEST_CODE_ONE);
                     }
-                    if(list.get(position).getName().equals("当事人信息")) {
-                        Intent i2 = new Intent(getApplicationContext(), TargetActivity.class);
-                        startActivityForResult(i2, ACTIVITY_REQUEST_CODE_TWO);
-                    }
-                    if(list.get(position).getName().equals("拍照")) {
-                        Intent i4 = new Intent(getApplicationContext(), PhotoActivity.class);
-                        startActivityForResult(i4, ACTIVITY_REQUEST_CODE_FORTH);
+                    if(list.get(position).getName().equals("工商营业执照照片")) {
+                        Toast.makeText(getApplicationContext(), list.get(position).getName(), Toast.LENGTH_LONG).show();
+//                        Intent i2 = new Intent(getApplicationContext(), TargetActivity.class);
+//                        startActivityForResult(i2, ACTIVITY_REQUEST_CODE_TWO);
                     }
 
             }
@@ -99,19 +97,15 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_all_finish, menu);
+        getMenuInflater().inflate(R.menu.menu_single_finish, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_all_finish:
-                Toast.makeText(getApplicationContext(),
-                        firstReturnLine + secondReturnLine + thirdReturnLine,
-                        Toast.LENGTH_LONG).show();
-                Log.w("finish",
-                        firstReturnLine + secondReturnLine + thirdReturnLine);
+            case R.id.action_single_finish:
+                Toast.makeText(getApplicationContext(), "finish button pressed", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -21,21 +21,33 @@
         <activity
             android:name=".EnterInfoListActivity"
             android:alwaysRetainTaskState="true"
-            android:label="@string/enterInfo"
-            android:parentActivityName=".FrontActivity"
-            android:launchMode="singleInstance" />
+            android:label="现场执法信息录入"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".FrontActivity" />
         <activity
             android:name=".CharacterActivity"
             android:alwaysRetainTaskState="true"
             android:label="案件性质、地区、案卷号"
-            android:parentActivityName=".EnterInfoListActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleInstance"
+            android:parentActivityName=".EnterInfoListActivity" />
         <activity
             android:name=".ReasonListActivity"
             android:alwaysRetainTaskState="true"
             android:label="案由"
-            android:parentActivityName=".EnterInfoListActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleInstance"
+            android:parentActivityName=".EnterInfoListActivity" />
+        <activity
+            android:name=".TargetActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="当事人信息"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".EnterInfoListActivity" />
+        <activity
+            android:name=".PhotoActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="拍照"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".EnterInfoListActivity" />
     </application>
 
 </manifest>

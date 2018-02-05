@@ -39,16 +39,16 @@ public class CharacterActivity extends AppCompatActivity {
         materialDesignSpinner1 = (MaterialBetterSpinner) findViewById(R.id.character);
         materialDesignSpinner1.setAdapter(arrayAdapter1);
         //set default value 简易案件
-        materialDesignSpinner1.setText(arrayAdapter1.getItem(0).toString());
+        materialDesignSpinner1.setText(arrayAdapter1.getItem(0));
 
         arrayAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, Option2);
         materialDesignSpinner2 = (MaterialBetterSpinner) findViewById(R.id.area);
         materialDesignSpinner2.setAdapter(arrayAdapter2);
         //set default value 房山区
-        materialDesignSpinner2.setText(arrayAdapter2.getItem(7).toString());
+        materialDesignSpinner2.setText(arrayAdapter2.getItem(7));
 
+        //no default value for fileNum
         materialEditText = (MaterialEditText) findViewById(R.id.fileNum);
-
 
     }
     @Override

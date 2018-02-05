@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class EnterInfoListAdapter extends EasyLVAdapter<Bean> {
 
+
     public EnterInfoListAdapter(Context context, List<Bean> list, int... layoutIds) {
         super(context, list, layoutIds);
     }

@@ -79,11 +79,10 @@ public class ReasonListActivity extends AppCompatActivity {
                                 }
                             });
                     AlertDialog alertDialog = alertDialogBuilder.create();
-
                     alertDialog.show();
                 } else {
                     Intent i = new Intent();
-                    i.putExtra("secondLine", result);
+                    i.putExtra("secondLine", result.substring(0, result.length() - 1));
                     setResult(RESULT_OK, i);
                     finish();
                 }
