@@ -105,7 +105,7 @@ public class PhotoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_single_finish:
-                Toast.makeText(getApplicationContext(), "finish button pressed", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "拍照完成按钮", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
