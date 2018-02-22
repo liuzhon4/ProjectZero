@@ -48,7 +48,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
     public static final int REQUEST_WRITE_STORAGE = 112;
 
-    private String casePath;
+    private String casePath = "/ProjectZeroCase/";
 
     private List<Bean> list = Arrays.asList(
             new Bean(R.drawable.ic_check_box_outline, "案件性质、地区、案卷号"),
@@ -87,13 +87,17 @@ public class EnterInfoListActivity extends AppCompatActivity {
                         Intent i2 = new Intent(getApplicationContext(), TargetActivity.class);
                         startActivityForResult(i2, ACTIVITY_REQUEST_CODE_TWO);
                     }
+                    if(list.get(position).getName().equals("涉案卷烟登记")) {
+                        Intent i3 = new Intent(getApplicationContext(), CigaretteLogActivity.class);
+                        startActivityForResult(i3, ACTIVITY_REQUEST_CODE_THIRD);
+                    }
                     if(list.get(position).getName().equals("拍照")) {
                         Intent i4 = new Intent(getApplicationContext(), PhotoActivity.class);
                         startActivityForResult(i4, ACTIVITY_REQUEST_CODE_FORTH);
                     }
             }
         });
-        Log.d("casePath", casePath);
+        Log.w("casePath", casePath);
 
     }
 
@@ -140,8 +144,8 @@ public class EnterInfoListActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
                 Log.w("finish",
                         firstReturnLine + secondReturnLine + thirdReturnLine);
-//                requestPermission(this);
-                createDir(casePath);
+                requestPermission(this);
+//                createDir(casePath);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -185,7 +189,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
             // You are allowed to write external storage:
             String path = Environment.getExternalStorageDirectory().getAbsolutePath() + casePath;
             File storageDir = new File(path);
-
+            Log.w("request permission", "write successful");
             if (!storageDir.exists() && !storageDir.mkdirs()) {
                 // This should never happen - log handled exception!
                 Log.e("request permission", "external storage request failed!");
@@ -200,7 +204,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
 //            FileOutputStream out = new FileOutputStream(fileWithinMyDir);
 //            out.write("lalala".getBytes());
 //            out.close();
-//            Log.d("createDir", "Code seems fine");
+//            Log.w("createDir", "Code seems fine");
 //        } catch (Exception e) {
 //            Log.e("createDir", e.getMessage());
 //        }
@@ -210,7 +214,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
             OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
             outputWriter.write("lalala");
             outputWriter.close();
-            Log.d("file", "write successful");
+            Log.w("file", "write successful");
 
         } catch (Exception e) {
             e.printStackTrace();

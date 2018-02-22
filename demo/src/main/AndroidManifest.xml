@@ -46,6 +46,12 @@
             android:launchMode="singleInstance"
             android:parentActivityName=".EnterInfoListActivity" />
         <activity
+            android:name=".CigaretteLogActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="涉案卷烟登记"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".EnterInfoListActivity" />
+        <activity
             android:name=".PhotoActivity"
             android:alwaysRetainTaskState="true"
             android:label="拍照"
