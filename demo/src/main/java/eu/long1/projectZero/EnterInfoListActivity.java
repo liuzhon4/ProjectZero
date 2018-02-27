@@ -48,7 +48,10 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
     public static final int REQUEST_WRITE_STORAGE = 112;
 
+    public DatabaseHandler db;
+
     private String casePath = "/ProjectZeroCase/";
+    private String caseID;
 
     private List<Bean> list = Arrays.asList(
             new Bean(R.drawable.ic_check_box_outline, "案件性质、地区、案卷号"),
@@ -65,9 +68,16 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
         SharedPreferences logInPreference= getSharedPreferences("loginPrefs", MODE_PRIVATE);;
         String badgeNum = logInPreference.getString("badgeNum", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmm", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm", Locale.getDefault());
         String currentDateTime = sdf.format(new Date());
         casePath += badgeNum + "_" + currentDateTime;
+//        Log.w("parse", badgeNum + currentDateTime);
+
+        //too long for a integer
+
+        caseID = badgeNum + "_" + currentDateTime;
+        Log.w("caseID", caseID);
+        db = new DatabaseHandler(this);
 
         listView = (ListView) findViewById(R.id.lv);
         mLVAdapter = new EnterInfoListAdapter(this, list, R.layout.item_list_view_1, R.layout.item_list_view_1);
@@ -144,7 +154,12 @@ public class EnterInfoListActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
                 Log.w("finish",
                         firstReturnLine + secondReturnLine + thirdReturnLine);
-                requestPermission(this);
+
+                Log.w("db test", "add new case");
+                db.addCase(new SingleCase(caseID, firstReturnLine, secondReturnLine));
+//                SingleCase temp = db.getCase("364052_201802270854");
+//                Log.w("db getCase", temp.getCharacter() + temp.getReason());
+//                requestPermission(this);
 //                createDir(casePath);
                 return true;
             default:

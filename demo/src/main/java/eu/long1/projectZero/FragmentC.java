@@ -3,6 +3,7 @@ package eu.long1.projectZero;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,12 +11,13 @@ import android.widget.Toast;
 
 
 public class FragmentC extends Fragment {
-
+    public DatabaseHandler db;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        db = new DatabaseHandler(getActivity().getApplicationContext());
     }
 
     @Override
@@ -34,6 +36,8 @@ public class FragmentC extends Fragment {
         switch (item.getItemId()) {
             case R.id.action_print:
                 Toast.makeText(getActivity().getApplication(), "print button is pressed", Toast.LENGTH_SHORT).show();
+//                SingleCase temp = db.getCase("364052_201802270910");
+//                Log.w("SQLite", temp.getCharacter() + temp.getReason());
                 return true;
             case R.id.action_add_new:
 //                Toast.makeText(getActivity().getApplication(), "add button is pressed", Toast.LENGTH_SHORT).show();

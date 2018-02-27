@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 //        some authentication logic
 
         String pwd_hashed = new String(Hex.encodeHex(DigestUtils.sha256(pwd)));
-        return pwd_hashed.equals("6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b") &&
-                badgeNum.equals("364052");
+        return badgeNum.equals("364052") &&
+                pwd_hashed.equals("6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b");
     }
 }

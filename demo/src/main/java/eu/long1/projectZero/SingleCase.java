@@ -7,7 +7,7 @@ package eu.long1.projectZero;
  */
 
 public class SingleCase {
-    Integer id;
+    String id;
     String caseCharacter;
     String caseReason;
 
@@ -15,15 +15,17 @@ public class SingleCase {
 
     }
 
-    public SingleCase(Integer id) {
+    public SingleCase(String id, String caseCharacter, String caseReason) {
+        this.id = id;
+        this.caseCharacter = caseCharacter;
+        this.caseReason = caseReason;
+    }
+
+    public void setID(String id) {
         this.id = id;
     }
 
-    public void setID(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getID() {
+    public String getID() {
         return this.id;
     }
 
