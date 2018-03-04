@@ -19,7 +19,7 @@ import java.util.List;
 import eu.long1.spacetablayout.SpaceTabLayout;
 
 public class FrontActivity extends AppCompatActivity {
-    SpaceTabLayout tabLayout;
+    public SpaceTabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,5 +47,7 @@ public class FrontActivity extends AppCompatActivity {
 //        });
 
     }
+
+
 
 }

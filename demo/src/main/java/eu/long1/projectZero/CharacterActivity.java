@@ -3,6 +3,7 @@ package eu.long1.projectZero;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -20,6 +21,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.Arrays;
+
+import de.mrapp.android.dialog.MaterialDialog;
 
 public class CharacterActivity extends AppCompatActivity {
 
@@ -65,10 +68,24 @@ public class CharacterActivity extends AppCompatActivity {
                 op2 = materialDesignSpinner2.getText().toString();
                 fileNumber = materialEditText.getText().toString();
                 if (fileNumber.length() > 3) {
-                    getAlertDialog(fileNumber);
+                    MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(this);
+                    dialogBuilder
+                            .setTitle("警告！")
+                            .setTitleColor(ContextCompat.getColor(getApplicationContext(), R.color.primary_dark))
+                            .setMessage("案卷号格式有误\n" + fileNumber)
+                            .setButtonTextColor(ContextCompat.getColor(getApplicationContext(), R.color.tbgreen))
+                            .setPositiveButton("确认", null)
+                            .setWidth(900)
+                            .setHeight(650);
+                    MaterialDialog dialog = dialogBuilder.create();
+                    dialog.show();
                 } else {
+                    if (fileNumber.length() == 0) {
+                        fileNumber = "0";
+                    }
+                    Log.w("format", String.format("%03d", Integer.valueOf(fileNumber)));
                     Intent i = new Intent();
-                    i.putExtra("firstLine", op1 + "$" + op2 + "$" + fileNumber);
+                    i.putExtra("firstLine", op1 + "$" + op2 + "$" + String.format("%03d", Integer.valueOf(fileNumber)));
                     setResult(RESULT_OK, i);
                     finish();
                 }
@@ -78,26 +95,4 @@ public class CharacterActivity extends AppCompatActivity {
         }
     }
 
-    public void getAlertDialog(String msg) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                CharacterActivity.this);
-
-        // set title
-        alertDialogBuilder.setTitle("警告！");
-
-
-        // set dialog message
-        alertDialogBuilder
-                .setMessage("案卷号格式有误\n" + msg)
-                .setCancelable(false)
-                .setPositiveButton("确认", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        // show it
-        alertDialog.show();
-    }
 }

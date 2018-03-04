@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_REASON, c.getReason());
 
         //insert and close connection
+//        Log.w("before temp", "yeah");
+//        SingleCase temp = getCase(c.getID());
+//        Log.w("temp", temp.getID());
+
         db.insert(TABLE_CASE, null, values);
         db.close();
     }
@@ -74,7 +79,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SingleCase c = new SingleCase(cursor.getString(0),
                 cursor.getString(1), cursor.getString(2));
 
+        cursor.close();
         return c;
+    }
+
+    public Boolean checkExist(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor mCursor = db.rawQuery("SELECT * FROM " +
+//                TABLE_CASE + " WHERE " + KEY_ID + "=?", new String[]{id});
+//        Cursor cursor = db.rawQuery("SELECT * FROM " +
+//                TABLE_CASE + " WHERE " + KEY_ID + "=?", new String[]{id});
+        Cursor cursor = db.query(TABLE_CASE, new String[] { KEY_ID,
+                        KEY_CHARACTER, KEY_REASON }, KEY_ID + "=?",
+                new String[] { String.valueOf(id) },
+                null, null, null, null);
+        return cursor != null;
     }
 
     public List<SingleCase> getAllCases() {

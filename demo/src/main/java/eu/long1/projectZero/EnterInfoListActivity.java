@@ -149,14 +149,24 @@ public class EnterInfoListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_all_finish:
-                Toast.makeText(getApplicationContext(),
-                        firstReturnLine + secondReturnLine + thirdReturnLine,
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),
+//                        firstReturnLine + secondReturnLine + thirdReturnLine,
+//                        Toast.LENGTH_LONG).show();
                 Log.w("finish",
                         firstReturnLine + secondReturnLine + thirdReturnLine);
 
                 Log.w("db test", "add new case");
-                db.addCase(new SingleCase(caseID, firstReturnLine, secondReturnLine));
+                if (db.checkExist(caseID)) {
+//                    db.addCase(new SingleCase(caseID, firstReturnLine, secondReturnLine));
+                    Toast.makeText(getApplicationContext(),
+                            "案件已经存在！请勿重复添加", Toast.LENGTH_LONG).show();
+                } else if (checkList.get(0) && checkList.get(1)) {
+                    db.addCase(new SingleCase(caseID, firstReturnLine, secondReturnLine));
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "请完成录入所有信息", Toast.LENGTH_LONG).show();
+                }
+
 //                SingleCase temp = db.getCase("364052_201802270854");
 //                Log.w("db getCase", temp.getCharacter() + temp.getReason());
 //                requestPermission(this);
@@ -166,6 +176,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
