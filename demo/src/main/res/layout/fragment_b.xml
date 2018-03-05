@@ -2,18 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.long1.projectZero.FragmentB"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="eu.long1.projectZero.FragmentB">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:text="零售户信息查询（开发中）"-->
+        <!--android:textSize="25sp" />-->
 
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        app:speechMode="true"
+        app:hint="烟草专卖许可证号"
+        app:maxSuggestionsCount="10"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="零售户信息查询（开发中）"
-        android:textSize="25sp" />
+        android:id="@+id/searchBar" />
+
 </RelativeLayout>

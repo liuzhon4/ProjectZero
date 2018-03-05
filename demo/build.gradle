@@ -27,6 +27,7 @@ android {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -42,6 +43,7 @@ dependencies {
     compile 'com.weiwangcn.betterspinner:library-material:1.1.0'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.github.michael-rapp:android-material-dialog:4.0.2'
+    compile 'com.github.mancj:MaterialSearchBar:0.6'
 
     testCompile 'junit:junit:4.12'
 
