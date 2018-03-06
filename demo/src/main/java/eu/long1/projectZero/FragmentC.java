@@ -36,7 +36,6 @@ public class FragmentC extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Add your menu entries here
-        inflater.inflate(R.menu.menu_upload, menu);
         inflater.inflate(R.menu.menu_add_new, menu);
         inflater.inflate(R.menu.menu_print, menu);
 
@@ -61,23 +60,6 @@ public class FragmentC extends Fragment {
                 Intent i = new Intent(getContext(), EnterInfoListActivity.class);
                 startActivity(i);
                 return true;
-            case R.id.action_upload:
-                Log.w("upload", "pressed");
-                //material dialog
-                MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(getActivity());
-                dialogBuilder
-                        .setTitle("注意！")
-                        .setTitleColor(ContextCompat.getColor(getContext(), R.color.primary_dark))
-                        .setMessage("上传后案件详情将会从手机中删除\n" +
-                                "请登录网站查看已上传的案件\n" +
-                                "www.****.cn")
-                        .setButtonTextColor(ContextCompat.getColor(getContext(), R.color.tbgreen))
-                        .setPositiveButton("确认", null)
-                        .setNegativeButton("取消", null)
-                        .setWidth(900)
-                        .setHeight(650);
-                MaterialDialog dialog = dialogBuilder.create();
-                dialog.show();
             default:
                 return super.onOptionsItemSelected(item);
         }

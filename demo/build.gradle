@@ -44,10 +44,12 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.github.michael-rapp:android-material-dialog:4.0.2'
     compile 'com.github.mancj:MaterialSearchBar:0.6'
+    compile 'com.github.barteksc:android-pdf-viewer:2.0.3'
 
     testCompile 'junit:junit:4.12'
 
 }
+
 
 
 

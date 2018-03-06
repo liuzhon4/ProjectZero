@@ -15,11 +15,12 @@
         <!--android:textSize="25sp" />-->
 
     <com.mancj.materialsearchbar.MaterialSearchBar
-        app:speechMode="true"
+        app:speechMode="false"
         app:hint="烟草专卖许可证号"
         app:maxSuggestionsCount="10"
+        android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/searchBar" />
+        />
 
 </RelativeLayout>

@@ -57,6 +57,14 @@
             android:label="拍照"
             android:launchMode="singleInstance"
             android:parentActivityName=".EnterInfoListActivity" />
+
+        <activity
+            android:name=".HelpActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="使用帮助"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".FrontActivity"
+            />
     </application>
 
 </manifest>

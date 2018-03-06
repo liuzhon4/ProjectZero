@@ -96,34 +96,6 @@ public class FragmentA extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        switch (item.getItemId()) {
-//            case R.id.action_update:
-//                //Its not a real update
-//                ProgressDialog.Builder dialogBuilder = new ProgressDialog.Builder(getContext());
-//                dialogBuilder
-//                        .setTitle("注意")
-//                        .setMessage("卷烟归属地信息更新成功")
-//                        .setPositiveButton("确认", null)
-//                        .setProgressBarPosition(ProgressDialog.ProgressBarPosition.LEFT)
-//                        .create()
-//                        .show();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-
-//    @Override
-//    public void onResume() {
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("卷烟归属地查询");
-//        super.onResume();
-//    }
-
     @Override
     public void onStart() {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("卷烟归属地查询");

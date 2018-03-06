@@ -4,6 +4,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -35,6 +37,7 @@ public class FrontActivity extends AppCompatActivity {
         fragmentList.add(new FragmentA());
         fragmentList.add(new FragmentB());
         fragmentList.add(new FragmentC());
+        fragmentList.add(new FragmentD());
 
         final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.activity_front);
 
@@ -49,6 +52,7 @@ public class FrontActivity extends AppCompatActivity {
 //            }
 //        });
 
+//        tabLayout.setTabFourIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_settings, null));
     }
 
 

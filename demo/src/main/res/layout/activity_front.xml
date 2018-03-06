@@ -18,7 +18,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         app:layout_behavior="eu.long1.spacetablayout.SpaceTabLayoutBehavior"
-        app:number_of_tabs="three"
+        app:number_of_tabs="four"
         app:starting_position="one"
         app:button_color="@color/green"
         app:text_one="卷烟归属地查询"
