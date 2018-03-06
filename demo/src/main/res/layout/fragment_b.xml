@@ -16,7 +16,7 @@
 
     <com.mancj.materialsearchbar.MaterialSearchBar
         app:speechMode="false"
-        app:hint="烟草专卖许可证号"
+        app:hint="请输入烟草专卖许可证号"
         app:maxSuggestionsCount="10"
         android:id="@+id/searchBar"
         android:layout_width="match_parent"

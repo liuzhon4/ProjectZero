@@ -39,7 +39,7 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
         // Inflate the layout for this fragment
         setHasOptionsMenu(true);
         setMenuVisibility(false);
-        View view = inflater.inflate(R.layout.fragment_b, container, false);
+        view = inflater.inflate(R.layout.fragment_b, container, false);
         searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar);
         searchBar.setOnSearchActionListener(this);
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
@@ -70,14 +70,11 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
 
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
-
         return super.onOptionsItemSelected(item);
     }
 

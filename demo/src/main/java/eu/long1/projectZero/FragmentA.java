@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mancj.materialsearchbar.MaterialSearchBar;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,13 +32,13 @@ import java.util.List;
 import de.mrapp.android.dialog.ProgressDialog;
 import eu.long1.spacetablayout.SpaceTabLayout;
 
-public class FragmentA extends Fragment {
+public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchActionListener {
     private View view;
-    private Button mButton;
-    private EditText mLast16Text;
+    private String mLast16Text;
     private TextView mCompanyText;
     private TextView mHomeText;
     private TextView mLicenseText;
+    private MaterialSearchBar searchBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,38 +48,50 @@ public class FragmentA extends Fragment {
         setMenuVisibility(false);
 
         view = inflater.inflate(R.layout.fragment_a, container, false);
-        mButton = (Button) view.findViewById(R.id.searchButton);
-        mLast16Text = (EditText) view.findViewById(R.id.last16View);
+//        mButton = (Button) view.findViewById(R.id.searchButton);
+//        mLast16Text = (EditText) view.findViewById(R.id.last16View);
         mCompanyText = (TextView) view.findViewById(R.id.companyText);
         mHomeText = (TextView) view.findViewById(R.id.homeText);
         mLicenseText = (TextView) view.findViewById(R.id.licenseText);
 
-        mButton.setOnClickListener(new View.OnClickListener() {
+        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar);
+        searchBar.setOnSearchActionListener(this);
+        searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
-            public void onClick(View v) {
+            public void onSearchStateChanged(boolean enabled) {
 
-                //hide virtual keyboard after pressing button
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
                 InputMethodManager inputManager = (InputMethodManager)
                         getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow((null == getActivity().getCurrentFocus()) ? null :
                         getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-
+                mLast16Text = searchBar.getText();
                 if (mLast16Text.length() != 16) {
-                    Toast.makeText(getActivity(), "请输入卷烟后16位编码", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "请输入正确的卷烟后16位编码", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getActivity(), mLast16Text.getText(), Toast.LENGTH_LONG).show();
-                    List<String> result = getCompanyAndHome(mLast16Text.getText().toString());
-                    Log.w("result1", result.get(0));
-                    Log.w("result2", result.get(1));
+//                    Toast.makeText(getActivity(), mLast16Text.getText(), Toast.LENGTH_LONG).show();
+                    List<String> result = getCompanyAndHome(mLast16Text);
+//                    Log.w("result1", result.get(0));
+//                    Log.w("result2", result.get(1));
                     mCompanyText.setText("未知".equals(result.get(0)) ? "未知" : result.get(0) + "烟草公司");
 //                    mCompanyText.setText(result.get(0) + "烟草公司");
                     mHomeText.setText(result.get(1));
-                    mLicenseText.setText(mLast16Text.getText().toString().substring(4, 16));
+                    mLicenseText.setText(mLast16Text.substring(4, 16));
                     mLicenseText.setPaintFlags(mLicenseText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                     mLicenseText.setTextColor(ContextCompat.getColor(getContext(), R.color.tbgreen));
                 }
+                Log.w("LOG_TAG", getClass().getSimpleName() + " text changed " + searchBar.getText());
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+
             }
         });
+
         mLicenseText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,6 +116,20 @@ public class FragmentA extends Fragment {
         super.onStart();
     }
 
+    @Override
+    public void onSearchStateChanged(boolean enabled) {
+    }
+
+    @Override
+    public void onSearchConfirmed(CharSequence text) {
+
+    }
+
+    @Override
+    public void onButtonClicked(int buttonCode) {
+
+    }
+
     public List<String> getCompanyAndHome(String last16) {
         String locationCode = last16.substring(4, 10);
         AssetManager am = getActivity().getAssets();
@@ -124,8 +152,6 @@ public class FragmentA extends Fragment {
         }
         return result;
     }
-
-
 
 
 }
