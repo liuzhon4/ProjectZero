@@ -1,1 +1,1 @@
-include ':demo', ':spacetablayout'
+include ':app', ':spacetablayout'
