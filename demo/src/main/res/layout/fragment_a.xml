@@ -11,38 +11,11 @@
         app:speechMode="false"
         app:hint="请输入卷烟后16位编码"
         app:maxSuggestionsCount="10"
+        app:placeholder="卷烟归属地查询"
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         />
-
-    <!--<com.rengwuxian.materialedittext.MaterialEditText-->
-        <!--android:id="@+id/last16View"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_marginStart="31dp"-->
-        <!--android:layout_marginTop="45dp"-->
-        <!--android:hint="请输入后16位编码"-->
-        <!--android:inputType="text"-->
-        <!--android:maxLength="16"-->
-        <!--app:met_baseColor="#085c53"-->
-        <!--app:met_floatingLabel="normal"-->
-        <!--app:met_floatingLabelTextColor="#222222"-->
-        <!--app:met_textColor="#111111"-->
-        <!--app:met_textColorHint="#AAAAAA" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/searchButton"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignBottom="@+id/last16View"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_marginEnd="55dp"-->
-        <!--android:text="@string/search"-->
-        <!--android:textAllCaps="false" />-->
 
     <TextView
         android:id="@+id/companyName"

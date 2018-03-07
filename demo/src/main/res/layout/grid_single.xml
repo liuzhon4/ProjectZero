@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/grid_image"
         android:layout_width="match_parent"
-        android:layout_height="60sp"
+        android:layout_height="70sp"
         android:layout_alignParentTop="true"
         android:src="@drawable/img_download"/>
 
@@ -16,9 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/grid_image"
-
         android:gravity="center|bottom"
         android:layout_alignEnd="@id/grid_image"
-        android:text="测试" />
+        android:text="测试"
+        android:textSize="19sp"/>
 
 </RelativeLayout>

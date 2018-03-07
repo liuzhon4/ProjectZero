@@ -15,7 +15,9 @@ import java.util.List;
 
 public class HelpActivity extends Activity implements OnPageChangeListener,
         OnLoadCompleteListener {
-
+    //use this do show pdf in the help part
+    //在使用帮助中直接用看 pdf
+    //pdf在 assets 中
     private static final String TAG = HelpActivity.class.getSimpleName();
     public static final String SAMPLE_FILE = "Dissertation_finalVersion.pdf";
     PDFView pdfView;

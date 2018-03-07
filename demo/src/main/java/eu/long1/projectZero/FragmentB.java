@@ -1,5 +1,6 @@
 package eu.long1.projectZero;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
@@ -41,7 +43,10 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
         setMenuVisibility(false);
         view = inflater.inflate(R.layout.fragment_b, container, false);
         searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar);
-        searchBar.setOnSearchActionListener(this);
+
+        searchBar.setNavButtonEnabled(true);
+        searchBar.setNavigationIcon(R.drawable.tobacco_logo);
+
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
@@ -50,6 +55,10 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
 
             @Override
             public void onSearchConfirmed(CharSequence text) {
+                InputMethodManager inputManager = (InputMethodManager)
+                        getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow((null == getActivity().getCurrentFocus()) ? null :
+                        getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 Log.w("LOG_TAG", getClass().getSimpleName() + " text changed " + searchBar.getText());
             }
 

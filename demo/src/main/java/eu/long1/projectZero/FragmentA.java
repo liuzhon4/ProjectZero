@@ -7,16 +7,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +27,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
-
-import de.mrapp.android.dialog.ProgressDialog;
-import eu.long1.spacetablayout.SpaceTabLayout;
 
 public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchActionListener {
     private View view;
@@ -48,18 +44,17 @@ public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchAct
         setMenuVisibility(false);
 
         view = inflater.inflate(R.layout.fragment_a, container, false);
-//        mButton = (Button) view.findViewById(R.id.searchButton);
-//        mLast16Text = (EditText) view.findViewById(R.id.last16View);
         mCompanyText = (TextView) view.findViewById(R.id.companyText);
         mHomeText = (TextView) view.findViewById(R.id.homeText);
         mLicenseText = (TextView) view.findViewById(R.id.licenseText);
 
         searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar);
-        searchBar.setOnSearchActionListener(this);
+        searchBar.setNavButtonEnabled(true);
+        searchBar.setNavigationIcon(R.drawable.tobacco_logo);
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
-
+//                Log.w("searchStateChanged", searchBar.getText());
             }
 
             @Override
@@ -72,12 +67,8 @@ public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchAct
                 if (mLast16Text.length() != 16) {
                     Toast.makeText(getActivity(), "请输入正确的卷烟后16位编码", Toast.LENGTH_LONG).show();
                 } else {
-//                    Toast.makeText(getActivity(), mLast16Text.getText(), Toast.LENGTH_LONG).show();
                     List<String> result = getCompanyAndHome(mLast16Text);
-//                    Log.w("result1", result.get(0));
-//                    Log.w("result2", result.get(1));
                     mCompanyText.setText("未知".equals(result.get(0)) ? "未知" : result.get(0) + "烟草公司");
-//                    mCompanyText.setText(result.get(0) + "烟草公司");
                     mHomeText.setText(result.get(1));
                     mLicenseText.setText(mLast16Text.substring(4, 16));
                     mLicenseText.setPaintFlags(mLicenseText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -90,6 +81,26 @@ public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchAct
             public void onButtonClicked(int buttonCode) {
 
             }
+        });
+
+        searchBar.addTextChangeListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                Log.w("searchStateChanged", searchBar.getText());
+                if(searchBar.getText().length() > 16) {
+                    Toast.makeText(getActivity(), "长度已超过16位", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+
         });
 
         mLicenseText.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +140,8 @@ public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchAct
     public void onButtonClicked(int buttonCode) {
 
     }
+
+    
 
     public List<String> getCompanyAndHome(String last16) {
         String locationCode = last16.substring(4, 10);
