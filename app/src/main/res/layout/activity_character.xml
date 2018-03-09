@@ -41,6 +41,6 @@
         app:met_textColor="#111111"
         app:met_floatingLabelTextColor="#222222"
         app:met_floatingLabel="normal"
-        android:inputType="phone"/>
+        android:inputType="phone" />
 
 </LinearLayout>

@@ -1,19 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="demo.projectZero.FragmentB">
 
     <com.mancj.materialsearchbar.MaterialSearchBar
-        app:speechMode="false"
-        app:hint="请输入烟草专卖许可证号"
-        app:placeholder="零售户信息查询"
-        app:maxSuggestionsCount="10"
-        android:id="@+id/searchBar"
+        android:id="@+id/searchBar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        app:hint="请输入烟草专卖许可证号"
+        app:maxSuggestionsCount="10"
+        app:placeholder="零售户信息查询"
+        app:navIconEnabled="true"
+        app:navIconDrawable="@drawable/tobacco_logo"
+        app:speechMode="false" />
 
     <TextView
         android:id="@+id/textView3"

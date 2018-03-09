@@ -1,7 +1,7 @@
 package demo.projectZero;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import eu.long1.projectZero.R;
 

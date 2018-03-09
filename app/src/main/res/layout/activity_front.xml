@@ -17,12 +17,12 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        app:button_color="@color/green"
         app:layout_behavior="eu.long1.spacetablayout.SpaceTabLayoutBehavior"
         app:number_of_tabs="four"
         app:starting_position="one"
-        app:button_color="@color/green"
         app:text_one="卷烟归属地查询"
-        app:text_two="零售户信息查询"
-        app:text_three="现场执法文书办理" />
+        app:text_three="现场执法文书办理"
+        app:text_two="零售户信息查询" />
 
 </android.support.design.widget.CoordinatorLayout>

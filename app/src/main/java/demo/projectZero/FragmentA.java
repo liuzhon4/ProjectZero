@@ -30,7 +30,8 @@ import java.util.List;
 
 import eu.long1.projectZero.R;
 
-public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchActionListener {
+public class FragmentA extends Fragment
+        implements MaterialSearchBar.OnSearchActionListener {
     private View view;
     private String mLast16Text;
     private TextView mCompanyText;
@@ -50,9 +51,8 @@ public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchAct
         mHomeText = (TextView) view.findViewById(R.id.homeText);
         mLicenseText = (TextView) view.findViewById(R.id.licenseText);
 
-        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar);
-        searchBar.setNavButtonEnabled(true);
-        searchBar.setNavigationIcon(R.drawable.tobacco_logo);
+        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar1);
+
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
@@ -141,7 +141,10 @@ public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchAct
 
     @Override
     public void onButtonClicked(int buttonCode) {
-
+        switch (buttonCode){
+            case MaterialSearchBar.BUTTON_SPEECH:
+                Toast.makeText(getActivity(), "lalala", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void clearField() {
@@ -152,6 +155,7 @@ public class FragmentA extends Fragment implements MaterialSearchBar.OnSearchAct
         mLicenseText.setTextColor(ContextCompat.getColor(getContext(), R.color.defaultTextView));
         mLicenseText.setPaintFlags(mLicenseText.getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
     }
+
 
     
 

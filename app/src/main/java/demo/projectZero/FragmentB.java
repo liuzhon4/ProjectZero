@@ -31,10 +31,7 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
         setHasOptionsMenu(true);
         setMenuVisibility(false);
         view = inflater.inflate(R.layout.fragment_b, container, false);
-        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar);
-
-        searchBar.setNavButtonEnabled(true);
-        searchBar.setNavigationIcon(R.drawable.tobacco_logo);
+        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar2);
 
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
