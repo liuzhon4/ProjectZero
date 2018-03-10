@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:hint="请选择案件性质"
         android:textColorHint="#05ab9a"
-
         app:met_floatingLabel="normal" />
 
     <Space

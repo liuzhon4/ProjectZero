@@ -14,7 +14,6 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="4dp"
         android:background="#80FFFFFF"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,6 +29,7 @@
         android:layout_marginTop="0dp"
         android:gravity="top"
         android:text="涉案卷烟登记（开发中）"
+        android:textSize="25dp"
         android:textColor="@color/tbgreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

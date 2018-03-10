@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     tools:context="demo.projectZero.FragmentA">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <com.mancj.materialsearchbar.MaterialSearchBar
         android:id="@+id/searchBar1"
         android:layout_width="match_parent"
@@ -18,10 +16,7 @@
         app:navIconEnabled="true"
         app:navIconDrawable="@drawable/tobacco_logo"
         app:placeholder="卷烟归属地查询"
-        app:speechMode="false"
-        >
-
-    </com.mancj.materialsearchbar.MaterialSearchBar>
+        app:speechMode="false" />
 
     <TextView
         android:id="@+id/companyName"

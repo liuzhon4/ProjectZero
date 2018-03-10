@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="demo.projectZero.TargetActivity">
 
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:id="@+id/targetSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hint="请输入烟草专卖许可证号"
+        app:maxSuggestionsCount="10"
+        app:placeholder="零售户信息查询"
+        app:navIconEnabled="true"
+        app:navIconDrawable="@drawable/tobacco_logo"
+        app:speechMode="false" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="当事人信息（开发中）"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="当事人信息查询（开发中）"
+        android:textColor="@color/tbgreen"
+        android:textSize="25sp" />
+
+</RelativeLayout>
