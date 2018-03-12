@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import eu.long1.projectZero.R;
 
-public class CustomGrid extends BaseAdapter{
+public class CustomGridAdapter extends BaseAdapter{
     private Context mContext;
     private final String[] web;
     private final int[] Imageid;
 
-    public CustomGrid(Context c,String[] web,int[] Imageid ) {
+    public CustomGridAdapter(Context c, String[] web, int[] Imageid ) {
         mContext = c;
         this.Imageid = Imageid;
         this.web = web;

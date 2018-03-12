@@ -73,7 +73,7 @@ public class FragmentD extends Fragment {
         view = inflater.inflate(R.layout.fragment_d, container, false);
 
         grid = (GridView) view.findViewById(R.id.grid);
-        grid.setAdapter(new CustomGrid(getActivity(), list, imageID));
+        grid.setAdapter(new CustomGridAdapter(getActivity(), list, imageID));
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -4,12 +4,17 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" />
+
     <uses-feature android:name="android.hardware.screen.landscape" />
 
-    <!--If you wish to use the vibration when a barcode is detected, you need to set the permission like below-->
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- If you wish to use the vibration when a barcode is detected, you need to set the permission like below -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,13 +22,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="demo.projectZero.MainActivity">
+        <activity
+            android:name="demo.projectZero.SplashScreen"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="demo.projectZero.MainActivity" />
 
         <activity
             android:name="demo.projectZero.FrontActivity"
@@ -76,14 +85,15 @@
             android:alwaysRetainTaskState="true"
             android:label="使用帮助"
             android:launchMode="singleInstance"
-            android:parentActivityName="demo.projectZero.FrontActivity"
-            />
+            android:parentActivityName="demo.projectZero.FrontActivity" />
 
-        <activity android:name="demo.projectZero.SimpleScannerActivity"
+        <activity
+            android:name="demo.projectZero.SimpleScannerActivity"
             android:alwaysRetainTaskState="true"
             android:label="扫码"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.CigaretteLogActivity" />
+
     </application>
 
 </manifest>
