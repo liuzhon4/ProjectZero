@@ -100,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch(requestCode) {
             case(1):
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                if(grantResults.length > 0
+                        && (grantResults[0] == PackageManager.PERMISSION_DENIED
+                        || grantResults[1] == PackageManager.PERMISSION_DENIED)) {
                     dialogBuilder = new MaterialDialog.Builder(this);
                     dialogBuilder
                             .setTitle("注意！")

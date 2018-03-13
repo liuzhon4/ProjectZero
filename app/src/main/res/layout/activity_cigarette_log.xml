@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     tools:context="demo.projectZero.CigaretteLogActivity">
 
-    <ImageButton
-        android:id="@+id/scan"
-        android:layout_width="48dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="4dp"
-        android:background="#80FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_barcode_reader_shadow" />
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:id="@+id/cigaretteLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        app:mt_hint="请输入卷烟条码"
+        app:mt_maxSuggestionsCount="10"
+        app:mt_navIconEnabled="true"
+        app:mt_placeholder="卷烟归属地查询"
+        app:mt_speechMode="true"
+        app:mt_speechIconDrawable="@drawable/img_scan"
+        />
 
     <TextView
         android:id="@+id/textView2"
@@ -36,23 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.mancj.materialsearchbar.MaterialSearchBar
-        android:id="@+id/cigaretteLog"
-        android:layout_width="318dp"
-        android:layout_height="62dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        app:hint="请输入卷烟条码"
-        app:layout_constraintEnd_toStartOf="@+id/scan"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:maxSuggestionsCount="10"
-        app:navIconDrawable="@drawable/tobacco_logo"
-        app:navIconEnabled="true"
-        app:placeholder="卷烟录入"
-        app:speechMode="false" />
+
 
 
 </android.support.constraint.ConstraintLayout>

@@ -14,11 +14,9 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import eu.long1.projectZero.R;
 
-public class CigaretteLogActivity extends AppCompatActivity
-        implements MaterialSearchBar.OnSearchActionListener {
+public class CigaretteLogActivity extends AppCompatActivity {
 
     private MaterialSearchBar searchBar;
-    private ImageButton scan;
     private static final int ACTIVITY_REQUEST_CODE_SCAN = 0;
     private String barCode;
 
@@ -29,8 +27,6 @@ public class CigaretteLogActivity extends AppCompatActivity
 
         //stop soft keyboard pushing up the view
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
-        scan = (ImageButton) findViewById(R.id.scan);
 
         searchBar = (MaterialSearchBar) findViewById(R.id.cigaretteLog);
 
@@ -52,17 +48,16 @@ public class CigaretteLogActivity extends AppCompatActivity
 
             @Override
             public void onButtonClicked(int buttonCode) {
-
+                switch (buttonCode) {
+                    case (MaterialSearchBar.BUTTON_SPEECH):
+                        Intent i = new Intent(getApplicationContext(), SimpleScannerActivity.class);
+                        startActivityForResult(i, ACTIVITY_REQUEST_CODE_SCAN);
+                    case (MaterialSearchBar.BUTTON_BACK):
+                        searchBar.disableSearch();
+                }
             }
         });
 
-        scan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), SimpleScannerActivity.class);
-                startActivityForResult(i, ACTIVITY_REQUEST_CODE_SCAN);
-            }
-        });
     }
 
     @Override
@@ -72,26 +67,10 @@ public class CigaretteLogActivity extends AppCompatActivity
             if (resultCode == RESULT_OK) {
                 barCode = data.getStringExtra("barCode");
                 Toast.makeText(getApplicationContext(), "barCode: " + barCode, Toast.LENGTH_LONG).show();
+                searchBar.disableSearch();
             }
         }
     }
-
-    @Override
-    public void onSearchStateChanged(boolean enabled) {
-    }
-
-    @Override
-    public void onSearchConfirmed(CharSequence text) {
-    }
-
-    @Override
-    public void onButtonClicked(int buttonCode) {
-        switch (buttonCode){
-            case MaterialSearchBar.BUTTON_SPEECH:
-                Toast.makeText(this, "lalala", Toast.LENGTH_SHORT).show();
-        }
-    }
-
 
 
 }

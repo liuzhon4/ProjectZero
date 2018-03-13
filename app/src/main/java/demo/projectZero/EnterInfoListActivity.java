@@ -55,7 +55,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
     private List<Bean> list = Arrays.asList(
             new Bean(R.drawable.ic_check_box_outline, "案件性质、地区、案卷号"),
             new Bean(R.drawable.ic_check_box_outline, "案由"),
-            new Bean(R.drawable.ic_check_box_outline, "当事人信息"),
+            new Bean(R.drawable.ic_check_box_outline, "当事人信息录入"),
             new Bean(R.drawable.ic_check_box_outline, "涉案卷烟登记"),
             new Bean(R.drawable.ic_check_box_outline, "拍照"));
 
@@ -92,7 +92,7 @@ public class EnterInfoListActivity extends AppCompatActivity {
                         Intent i1 = new Intent(getApplicationContext(), ReasonListActivity.class);
                         startActivityForResult(i1, ACTIVITY_REQUEST_CODE_ONE);
                     }
-                    if(list.get(position).getName().equals("当事人信息")) {
+                    if(list.get(position).getName().equals("当事人信息录入")) {
                         Intent i2 = new Intent(getApplicationContext(), TargetActivity.class);
                         startActivityForResult(i2, ACTIVITY_REQUEST_CODE_TWO);
                     }

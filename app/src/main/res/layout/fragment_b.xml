@@ -6,24 +6,187 @@
     tools:context="demo.projectZero.FragmentB">
 
     <com.mancj.materialsearchbar.MaterialSearchBar
-        android:id="@+id/searchBar2"
+        android:id="@+id/searchBarB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hint="请输入烟草专卖许可证号"
-        app:maxSuggestionsCount="10"
-        app:placeholder="零售户信息查询"
-        app:navIconEnabled="true"
-        app:navIconDrawable="@drawable/tobacco_logo"
-        app:speechMode="false" />
+        app:mt_hint="请输入烟草专卖许可证号"
+        app:mt_maxSuggestionsCount="10"
+        app:mt_placeholder="零售户信息查询"
+        app:mt_navIconEnabled="true"
+        app:mt_searchIconDrawable="@drawable/tobacco_logo"
+        app:mt_speechMode="false" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="零售户信息查询（开发中）"
-        android:textColor="@color/tbgreen"
-        android:textSize="25sp" />
+    <ScrollView
+        android:layout_width="340dp"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/searchBarB"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/license"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/licenseID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enterpriseName"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/commerceNameID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/addressID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="map"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/handler"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/handlerID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contactName"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/contactNameID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contactNum"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/contactNumID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="phone"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/IDNum"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/IDNumID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commerceNum"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/commerceNumID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/startDate"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/startDateID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/endDate"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/endDateID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/belongsTo"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/belongsToID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/statusID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                android:textColor="@android:color/holo_red_dark" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

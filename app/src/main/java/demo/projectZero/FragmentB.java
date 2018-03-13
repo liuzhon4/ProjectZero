@@ -19,7 +19,7 @@ import java.util.List;
 
 import eu.long1.projectZero.R;
 
-public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchActionListener{
+public class FragmentB extends Fragment {
     private View view;
     private List<String> lastSearches;
     private MaterialSearchBar searchBar;
@@ -31,7 +31,7 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
         setHasOptionsMenu(true);
         setMenuVisibility(false);
         view = inflater.inflate(R.layout.fragment_b, container, false);
-        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar2);
+        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBarB);
 
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
@@ -50,7 +50,10 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
 
             @Override
             public void onButtonClicked(int buttonCode) {
-
+                switch (buttonCode) {
+                    case (MaterialSearchBar.BUTTON_BACK):
+                        searchBar.disableSearch();
+                }
             }
         });
         return view;
@@ -73,18 +76,5 @@ public class FragmentB extends Fragment implements MaterialSearchBar.OnSearchAct
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onSearchStateChanged(boolean enabled) {
-    }
-
-    @Override
-    public void onSearchConfirmed(CharSequence text) {
-
-    }
-
-    @Override
-    public void onButtonClicked(int buttonCode) {
-
-    }
 
 }

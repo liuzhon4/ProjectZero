@@ -1,11 +1,17 @@
 package demo.projectZero;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -29,9 +36,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import eu.long1.projectZero.R;
+import eu.long1.spacetablayout.SpaceTabLayout;
 
-public class FragmentA extends Fragment
-        implements MaterialSearchBar.OnSearchActionListener {
+public class FragmentA extends Fragment {
     private View view;
     private String mLast16Text;
     private TextView mCompanyText;
@@ -51,7 +58,7 @@ public class FragmentA extends Fragment
         mHomeText = (TextView) view.findViewById(R.id.homeText);
         mLicenseText = (TextView) view.findViewById(R.id.licenseText);
 
-        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBar1);
+        searchBar = (MaterialSearchBar) view.findViewById(R.id.searchBarA);
 
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
@@ -77,12 +84,15 @@ public class FragmentA extends Fragment
                     mLicenseText.setPaintFlags(mLicenseText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                     mLicenseText.setTextColor(ContextCompat.getColor(getContext(), R.color.tbgreen));
                 }
-                Log.w("LOG_TAG", getClass().getSimpleName() + " text changed " + searchBar.getText());
+                Log.w("searchBar text", searchBar.getText());
             }
 
             @Override
             public void onButtonClicked(int buttonCode) {
-
+                switch (buttonCode) {
+                    case (MaterialSearchBar.BUTTON_BACK):
+                        searchBar.disableSearch();
+                }
             }
         });
 
@@ -109,8 +119,10 @@ public class FragmentA extends Fragment
         mLicenseText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "License Button Clicked", Toast.LENGTH_LONG).show();
-
+                ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("license", mLicenseText.getText());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getActivity(), "许可证号已复制到剪贴板", Toast.LENGTH_LONG).show();
             }
         });
         return view;
@@ -128,23 +140,6 @@ public class FragmentA extends Fragment
     public void onStart() {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("卷烟归属地查询");
         super.onStart();
-    }
-
-    @Override
-    public void onSearchStateChanged(boolean enabled) {
-    }
-
-    @Override
-    public void onSearchConfirmed(CharSequence text) {
-
-    }
-
-    @Override
-    public void onButtonClicked(int buttonCode) {
-        switch (buttonCode){
-            case MaterialSearchBar.BUTTON_SPEECH:
-                Toast.makeText(getActivity(), "lalala", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void clearField() {

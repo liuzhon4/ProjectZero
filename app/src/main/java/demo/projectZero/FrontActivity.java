@@ -45,6 +45,7 @@ public class FrontActivity extends AppCompatActivity {
 //        });
 
 //        tabLayout.setTabFourIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_settings, null));
+        
     }
 
 

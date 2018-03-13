@@ -11,12 +11,14 @@
         android:id="@+id/targetSearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hint="请输入烟草专卖许可证号"
-        app:maxSuggestionsCount="10"
-        app:placeholder="零售户信息查询"
-        app:navIconEnabled="true"
-        app:navIconDrawable="@drawable/tobacco_logo"
-        app:speechMode="false" />
+        app:mt_hint="请输入烟草专卖许可证号"
+        app:mt_maxSuggestionsCount="10"
+        app:mt_placeholder="当事人信息查询"
+        app:mt_navIconEnabled="true"
+
+        app:mt_speechMode="false" >
+
+    </com.mancj.materialsearchbar.MaterialSearchBar>
 
     <TextView
         android:id="@+id/textView3"
@@ -27,5 +29,7 @@
         android:text="当事人信息查询（开发中）"
         android:textColor="@color/tbgreen"
         android:textSize="25sp" />
+
+
 
 </RelativeLayout>

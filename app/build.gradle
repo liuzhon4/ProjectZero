@@ -43,7 +43,7 @@ dependencies {
     compile 'com.weiwangcn.betterspinner:library-material:1.1.0'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.github.michael-rapp:android-material-dialog:4.0.2'
-    compile 'com.github.mancj:MaterialSearchBar:0.6'
+    compile 'com.github.mancj:MaterialSearchBar:0.7.6'
     compile 'com.github.barteksc:android-pdf-viewer:2.0.3'
 
     compile 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
