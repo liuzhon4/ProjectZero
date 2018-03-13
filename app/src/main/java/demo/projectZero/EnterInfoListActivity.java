@@ -47,8 +47,6 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
     public static final int REQUEST_WRITE_STORAGE = 112;
 
-    public DatabaseHandler db;
-
     private String casePath = "/ProjectZeroCase/";
     private String caseID;
 
@@ -76,7 +74,6 @@ public class EnterInfoListActivity extends AppCompatActivity {
 
         caseID = badgeNum + "_" + currentDateTime;
         Log.w("caseID", caseID);
-        db = new DatabaseHandler(this);
 
         listView = (ListView) findViewById(R.id.lv);
         mLVAdapter = new EnterInfoListAdapter(this, list, R.layout.item_list_view_1, R.layout.item_list_view_1);
@@ -154,22 +151,6 @@ public class EnterInfoListActivity extends AppCompatActivity {
                 Log.w("finish",
                         firstReturnLine + secondReturnLine + thirdReturnLine);
 
-                Log.w("db test", "add new case");
-                if (db.checkExist(caseID)) {
-//                    db.addCase(new SingleCase(caseID, firstReturnLine, secondReturnLine));
-                    Toast.makeText(getApplicationContext(),
-                            "案件已经存在！请勿重复添加", Toast.LENGTH_LONG).show();
-                } else if (checkList.get(0) && checkList.get(1)) {
-                    db.addCase(new SingleCase(caseID, firstReturnLine, secondReturnLine));
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "请完成录入所有信息", Toast.LENGTH_LONG).show();
-                }
-
-//                SingleCase temp = db.getCase("364052_201802270854");
-//                Log.w("db getCase", temp.getCharacter() + temp.getReason());
-//                requestPermission(this);
-//                createDir(casePath);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

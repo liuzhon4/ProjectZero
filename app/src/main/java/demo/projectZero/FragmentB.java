@@ -45,7 +45,7 @@ public class FragmentB extends Fragment {
                         getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow((null == getActivity().getCurrentFocus()) ? null :
                         getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                Log.w("LOG_TAG", getClass().getSimpleName() + " text changed " + searchBar.getText());
+                Log.w("searchBarB text", searchBar.getText());
             }
 
             @Override

@@ -84,7 +84,7 @@ public class FragmentA extends Fragment {
                     mLicenseText.setPaintFlags(mLicenseText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                     mLicenseText.setTextColor(ContextCompat.getColor(getContext(), R.color.tbgreen));
                 }
-                Log.w("searchBar text", searchBar.getText());
+                Log.w("searchBarA text", searchBar.getText());
             }
 
             @Override

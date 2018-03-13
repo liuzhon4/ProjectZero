@@ -13,12 +13,11 @@ import eu.long1.projectZero.R;
 
 
 public class FragmentC extends Fragment {
-    public DatabaseHandler db;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        db = new DatabaseHandler(getActivity().getApplicationContext());
 
     }
 
@@ -41,8 +40,6 @@ public class FragmentC extends Fragment {
         switch (item.getItemId()) {
             case R.id.action_print:
                 Toast.makeText(getActivity().getApplication(), "print button is pressed", Toast.LENGTH_SHORT).show();
-//                SingleCase temp = db.getCase("364052_201802270910");
-//                Log.w("SQLite", temp.getCharacter() + temp.getReason());
                 return true;
             case R.id.action_add_new:
 //                Toast.makeText(getActivity().getApplication(), "add button is pressed", Toast.LENGTH_SHORT).show();
