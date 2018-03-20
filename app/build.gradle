@@ -27,6 +27,7 @@ android {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.afollestad.material-dialogs:core:0.9.4.3'
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -42,12 +43,13 @@ dependencies {
     compile 'commons-codec:commons-codec:1.11'
     compile 'com.weiwangcn.betterspinner:library-material:1.1.0'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile 'com.github.michael-rapp:android-material-dialog:4.0.2'
+
+
     compile 'com.github.mancj:MaterialSearchBar:0.7.6'
     compile 'com.github.barteksc:android-pdf-viewer:2.0.3'
 
     compile 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
-    compile 'com.google.zxing:core:3.2.0'
+
     compile 'me.dm7.barcodescanner:zbar:1.9.8'
     testCompile 'junit:junit:4.12'
 

@@ -2,17 +2,16 @@ package demo.projectZero;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
-import de.mrapp.android.dialog.MaterialDialog;
 import eu.long1.projectZero.R;
 
 public class CharacterActivity extends AppCompatActivity {
@@ -59,17 +58,13 @@ public class CharacterActivity extends AppCompatActivity {
                 op2 = materialDesignSpinner2.getText().toString();
                 fileNumber = materialEditText.getText().toString();
                 if (fileNumber.length() > 3) {
-                    MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(this);
-                    dialogBuilder
-                            .setTitle("警告！")
-                            .setTitleColor(ContextCompat.getColor(getApplicationContext(), R.color.primary_dark))
-                            .setMessage("案卷号格式有误\n" + fileNumber)
-                            .setButtonTextColor(ContextCompat.getColor(getApplicationContext(), R.color.tbgreen))
-                            .setPositiveButton("确认", null)
-                            .setWidth(900)
-                            .setHeight(650);
-                    MaterialDialog dialog = dialogBuilder.create();
-                    dialog.show();
+                    new MaterialDialog.Builder(this)
+                            .title("警告！")
+                            .titleColorRes(R.color.primary)
+                            .content("案卷号格式有误\n" + fileNumber + "\n最多不能超过4位")
+                            .positiveText("确认")
+                            .positiveColorRes(R.color.tbgreen)
+                            .show();
                 } else {
                     if (fileNumber.length() == 0) {
                         fileNumber = "0";

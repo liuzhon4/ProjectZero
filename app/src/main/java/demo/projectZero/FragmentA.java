@@ -6,12 +6,8 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,7 +15,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -36,7 +31,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import eu.long1.projectZero.R;
-import eu.long1.spacetablayout.SpaceTabLayout;
 
 public class FragmentA extends Fragment {
     private View view;

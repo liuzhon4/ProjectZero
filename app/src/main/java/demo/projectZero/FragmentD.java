@@ -17,11 +17,10 @@
 package demo.projectZero;
 
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,9 +31,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import java.util.Arrays;
 
-import de.mrapp.android.dialog.MaterialDialog;
 import eu.long1.projectZero.BuildConfig;
 import eu.long1.projectZero.R;
 
@@ -61,8 +62,8 @@ public class FragmentD extends Fragment {
             R.drawable.img_help,
             R.drawable.img_version_control};
 
-    MaterialDialog.Builder dialogBuilder;
-    MaterialDialog dialog;
+//    MaterialDialog.Builder dialogBuilder;
+//    MaterialDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -84,43 +85,37 @@ public class FragmentD extends Fragment {
 
                 if (Arrays.asList(list).get(position).equals("上传记录")) {
                     //material dialog
-                    dialogBuilder = new MaterialDialog.Builder(getActivity());
-                    dialogBuilder
-                            .setTitle("注意！")
-                            .setTitleColor(ContextCompat.getColor(getContext(), R.color.primary_dark))
-                            .setMessage("上传后案件详情将会从手机中删除\n" +
+                    new MaterialDialog.Builder(getActivity())
+                            .title("注意！")
+                            .titleColorRes(R.color.primary)
+                            .content("上传后案件详情将会从手机中删除\n" +
                                     "请登录网站查看已上传的案件\n" +
                                     "www.****.cn")
-                            .setButtonTextColor(ContextCompat.getColor(getContext(), R.color.tbgreen))
-                            .setPositiveButton("确认", null)
-                            .setNegativeButton("取消", null)
-                            .setWidth(900)
-                            .setHeight(650);
-                    dialog = dialogBuilder.create();
-                    dialog.show();
-
+                            .positiveText("确认")
+                            .positiveColorRes(R.color.tbgreen)
+                            .negativeText("取消")
+                            .negativeColorRes(R.color.tbgreen)
+                            .show();
                     //上传数据 logic
 
                 }
                 if (Arrays.asList(list).get(position).equals("退出登录")) {
-                    dialogBuilder = new MaterialDialog.Builder(getActivity());
-                    dialogBuilder
-                            .setTitle("注意！")
-                            .setTitleColor(ContextCompat.getColor(getContext(), R.color.primary_dark))
-                            .setMessage("确定退出吗？")
-                            .setButtonTextColor(ContextCompat.getColor(getContext(), R.color.tbgreen))
-                            .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    new MaterialDialog.Builder(getActivity())
+                            .title("注意！")
+                            .titleColorRes(R.color.primary)
+                            .content("确定退出吗？")
+                            .positiveText("确认")
+                            .positiveColorRes(R.color.tbgreen)
+                            .negativeText("取消")
+                            .negativeColorRes(R.color.tbgreen)
+                            .onPositive(new MaterialDialog.SingleButtonCallback() {
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
+                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                     Intent i = new Intent(getContext(), MainActivity.class);
                                     startActivity(i);
                                 }
                             })
-                            .setNegativeButton("取消", null)
-                            .setWidth(900)
-                            .setHeight(650);
-                    dialog = dialogBuilder.create();
-                    dialog.show();
+                            .show();
                 }
                 if(Arrays.asList(list).get(position).equals("清除缓存")) {
                      Toast.makeText(getActivity(),

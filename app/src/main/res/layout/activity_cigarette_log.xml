@@ -15,7 +15,7 @@
         app:mt_hint="请输入卷烟条码"
         app:mt_maxSuggestionsCount="10"
         app:mt_navIconEnabled="true"
-        app:mt_placeholder="卷烟归属地查询"
+        app:mt_placeholder="卷烟查询"
         app:mt_speechMode="true"
         app:mt_speechIconDrawable="@drawable/img_scan"
         />

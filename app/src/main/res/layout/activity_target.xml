@@ -15,7 +15,7 @@
         app:mt_maxSuggestionsCount="10"
         app:mt_placeholder="当事人信息查询"
         app:mt_navIconEnabled="true"
-
+        app:mt_searchIconDrawable="@drawable/tobacco_logo"
         app:mt_speechMode="false" >
 
     </com.mancj.materialsearchbar.MaterialSearchBar>

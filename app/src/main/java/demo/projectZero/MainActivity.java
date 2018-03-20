@@ -1,7 +1,6 @@
 package demo.projectZero;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -17,10 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import de.mrapp.android.dialog.MaterialDialog;
 import eu.long1.projectZero.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     String badgeNum, password;
     Button btnLogin;
     Switch sw_pwd;
-    MaterialDialog.Builder dialogBuilder;
-    MaterialDialog dialog;
 
     private SharedPreferences logInPreference;
     private SharedPreferences.Editor logInPreferenceEditor;
@@ -103,28 +102,27 @@ public class MainActivity extends AppCompatActivity {
                 if(grantResults.length > 0
                         && (grantResults[0] == PackageManager.PERMISSION_DENIED
                         || grantResults[1] == PackageManager.PERMISSION_DENIED)) {
-                    dialogBuilder = new MaterialDialog.Builder(this);
-                    dialogBuilder
-                            .setTitle("注意！")
-                            .setTitleColor(ContextCompat.getColor(getApplicationContext(), R.color.primary_dark))
-                            .setMessage("不授权将会导致APP无法使用")
-                            .setButtonTextColor(ContextCompat.getColor(getApplicationContext(), R.color.tbgreen))
-                            .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    new MaterialDialog.Builder(this)
+                            .title("注意！")
+                            .titleColorRes(R.color.primary)
+                            .content("不授权将会导致APP无法使用")
+                            .positiveText("确认")
+                            .positiveColorRes(R.color.tbgreen)
+                            .negativeText("取消")
+                            .negativeColorRes(R.color.tbgreen)
+                            .onPositive(new MaterialDialog.SingleButtonCallback() {
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
+                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                     askPermission();
                                 }
                             })
-                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            .onNegative(new MaterialDialog.SingleButtonCallback() {
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
+                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                     finishAffinity();
                                 }
                             })
-                            .setWidth(900)
-                            .setHeight(650);
-                    dialog = dialogBuilder.create();
-                    dialog.show();
+                            .show();
                 }
 
         }

@@ -1,6 +1,5 @@
 package demo.projectZero;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
@@ -41,10 +39,7 @@ public class FragmentB extends Fragment {
 
             @Override
             public void onSearchConfirmed(CharSequence text) {
-                InputMethodManager inputManager = (InputMethodManager)
-                        getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow((null == getActivity().getCurrentFocus()) ? null :
-                        getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
                 Log.w("searchBarB text", searchBar.getText());
             }
 
