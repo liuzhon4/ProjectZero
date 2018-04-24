@@ -39,7 +39,7 @@ public class FragmentC extends Fragment {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_print:
-                Toast.makeText(getActivity().getApplication(), "print button is pressed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "打印按钮", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_add_new:
 //                Toast.makeText(getActivity().getApplication(), "add button is pressed", Toast.LENGTH_SHORT).show();

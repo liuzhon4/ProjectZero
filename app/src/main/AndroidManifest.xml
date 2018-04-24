@@ -4,12 +4,14 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="true" />
-
     <uses-feature android:name="android.hardware.screen.landscape" />
 
     <!-- If you wish to use the vibration when a barcode is detected, you need to set the permission like below -->
@@ -21,7 +23,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name="demo.projectZero.SplashScreen"
             android:theme="@style/SplashTheme">
@@ -31,69 +32,65 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name="demo.projectZero.MainActivity" />
-
         <activity
             android:name="demo.projectZero.FrontActivity"
             android:label="@string/app_name" />
-
         <activity
             android:name="demo.projectZero.EnterInfoListActivity"
             android:alwaysRetainTaskState="true"
             android:label="现场执法信息录入"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.FrontActivity" />
-
         <activity
             android:name="demo.projectZero.CharacterActivity"
             android:alwaysRetainTaskState="true"
             android:label="案件性质、地区、案卷号"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.EnterInfoListActivity" />
-
         <activity
             android:name="demo.projectZero.ReasonListActivity"
             android:alwaysRetainTaskState="true"
             android:label="案由"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.EnterInfoListActivity" />
-
         <activity
             android:name="demo.projectZero.TargetActivity"
             android:alwaysRetainTaskState="true"
             android:label="当事人信息"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.EnterInfoListActivity" />
-
         <activity
             android:name="demo.projectZero.CigaretteLogActivity"
             android:alwaysRetainTaskState="true"
             android:label="涉案卷烟登记"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.EnterInfoListActivity" />
-
         <activity
             android:name="demo.projectZero.PhotoActivity"
             android:alwaysRetainTaskState="true"
             android:label="拍照"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.EnterInfoListActivity" />
-
         <activity
             android:name="demo.projectZero.HelpActivity"
             android:alwaysRetainTaskState="true"
             android:label="使用帮助"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.FrontActivity" />
-
         <activity
             android:name="demo.projectZero.SimpleScannerActivity"
             android:alwaysRetainTaskState="true"
             android:label="扫码"
             android:launchMode="singleInstance"
             android:parentActivityName="demo.projectZero.CigaretteLogActivity" />
-
+        <activity
+            android:name="demo.projectZero.DistanceActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="核查测距"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.FrontActivity"
+            />
     </application>
 
 </manifest>

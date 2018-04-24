@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +32,7 @@ public class ReasonListActivity extends AppCompatActivity {
             new Bean(R.drawable.ic_check_box_outline, "销售无标志外国卷烟"),
             new Bean(R.drawable.ic_check_box_outline, "销售非法生产烟草专卖品"),
             new Bean(R.drawable.ic_check_box_outline, "无烟草专卖品准运证运输烟草专卖品"),
-            new Bean(R.drawable.ic_check_box_outline, "案由"),
-            new Bean(R.drawable.ic_check_box_outline, "案由"));
+            new Bean(R.drawable.ic_check_box_outline, "待拓展案由"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,8 @@ public class ReasonListActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.lv);
         mLVAdapter = new ReasonListAdapter(this, list, R.layout.item_list_view_2, R.layout.item_list_view_2);
         listView.setAdapter(mLVAdapter);
+//        CheckBox cb = (CheckBox) listView.getChildAt(0).findViewById(R.id.cb);
+
     }
 
 
@@ -65,18 +68,13 @@ public class ReasonListActivity extends AppCompatActivity {
                 }
                 String result = sb.toString();
                 if (result.length() == 0) {
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                            ReasonListActivity.this);
-                    alertDialogBuilder
-                            .setTitle("警告！")
-                            .setMessage("请选择至少一个案由！")
-                            .setPositiveButton("确认", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-                    AlertDialog alertDialog = alertDialogBuilder.create();
-                    alertDialog.show();
+                    new MaterialDialog.Builder(this)
+                            .title("警告！")
+                            .titleColorRes(R.color.primary)
+                            .content("请至少选择一个案由")
+                            .positiveText("确认")
+                            .positiveColorRes(R.color.tbgreen)
+                            .show();
                 } else {
                     Intent i = new Intent();
                     i.putExtra("secondLine", result.substring(0, result.length() - 1));

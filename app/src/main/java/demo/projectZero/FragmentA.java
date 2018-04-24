@@ -78,6 +78,7 @@ public class FragmentA extends Fragment {
                     mLicenseText.setPaintFlags(mLicenseText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                     mLicenseText.setTextColor(ContextCompat.getColor(getContext(), R.color.tbgreen));
                 }
+                searchBar.disableSearch();
                 Log.w("searchBarA text", searchBar.getText());
             }
 
@@ -140,7 +141,6 @@ public class FragmentA extends Fragment {
         mHomeText.setText("未知");
         mCompanyText.setText("未知");
         mLicenseText.setText("未知");
-        mLicenseText.setClickable(false);
         mLicenseText.setTextColor(ContextCompat.getColor(getContext(), R.color.defaultTextView));
         mLicenseText.setPaintFlags(mLicenseText.getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
     }

@@ -18,10 +18,12 @@ package demo.projectZero;
 
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,7 +36,12 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.List;
 
 import eu.long1.projectZero.BuildConfig;
 import eu.long1.projectZero.R;
@@ -51,7 +58,10 @@ public class FragmentD extends Fragment {
             "清除缓存",
             "关于我们",
             "使用帮助",
-            "版本管理"};
+            "核查测距",
+            "版本管理",
+            "卷烟查询",
+            "可拓展功能"};
 
     int[] imageID = {
             R.drawable.img_download,
@@ -60,16 +70,18 @@ public class FragmentD extends Fragment {
             R.drawable.img_clear_cache,
             R.drawable.img_about_us,
             R.drawable.img_help,
-            R.drawable.img_version_control};
+            R.drawable.img_distance,
+            R.drawable.img_version_control,
+            R.drawable.img_scan_for_price,
+            R.drawable.img_more};
 
-//    MaterialDialog.Builder dialogBuilder;
-//    MaterialDialog dialog;
+    private static final int ACTIVITY_REQUEST_CODE_SCAN = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         setMenuVisibility(false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("设置");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("功能");
         super.onCreate(savedInstanceState);
         view = inflater.inflate(R.layout.fragment_d, container, false);
 
@@ -133,6 +145,18 @@ public class FragmentD extends Fragment {
                     Toast.makeText(getActivity(),
                             "Version Name: " + BuildConfig.VERSION_NAME, Toast.LENGTH_SHORT).show();
                 }
+                if(Arrays.asList(list).get(position).equals("核查测距")) {
+                    Intent i = new Intent(getContext(), DistanceActivity.class);
+                    startActivity(i);
+                }
+                if(Arrays.asList(list).get(position).equals("卷烟查询")) {
+                    Intent i = new Intent(getContext(), SimpleScannerActivity.class);
+                    startActivityForResult(i, ACTIVITY_REQUEST_CODE_SCAN);
+                }
+                if(Arrays.asList(list).get(position).equals("可拓展功能")) {
+                    Toast.makeText(getActivity(),
+                            "可拓展功能", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         return view;
@@ -141,15 +165,34 @@ public class FragmentD extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Add your menu entries here
-//        inflater.inflate(R.menu.menu_update, menu);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("设置");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("功能");
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public void onStart() {
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("设置");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("功能");
         super.onStart();
+    }
+
+    public List<String> getResult(String barCode) {
+        AssetManager am = getActivity().getAssets();
+        String line;
+        List<String> result = Arrays.asList("未知", "未知", barCode);
+        try{
+            InputStream is = am.open("db.txt");
+            BufferedReader reader = new BufferedReader((new InputStreamReader(is)));
+            while ((line = reader.readLine()) != null) {
+                List<String> lineList = Arrays.asList(line.split("-"));
+                if (barCode.equals(lineList.get(2)) || barCode.equals(lineList.get(3))) {
+                    result.set(0, lineList.get(4));
+                    result.set(1, lineList.get(6));
+                }
+            }
+        } catch (IOException e) {
+            Log.e("assetFile, db.txt", e.getMessage());
+        }
+        return result;
     }
 
 }
