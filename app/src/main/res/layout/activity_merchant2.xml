@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:id="@+id/searchBarMerchant2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mt_hint="请输入商店名称"
+        app:mt_maxSuggestionsCount="10"
+        app:mt_roundedSearchBarEnabled="true"
+        app:mt_searchIconUseTint="true"
+        app:mt_searchIconTint="@color/tbgreen"
+        app:mt_searchIconDrawable="@drawable/tobacco_logo"
+        app:mt_navIconEnabled="false"
+        app:mt_clearIconUseTint="true"
+        app:mt_backIconUseTint="true"
+        app:mt_backIconTint="@color/tbgreen"
+        app:mt_clearIconTint="@color/tbgreen"
+        app:mt_textCursorTint="@color/tbgreen"
+        app:mt_placeholderColor="@color/tbgreen"
+        app:mt_placeholder="\t\t\t商店名称"
+        app:mt_speechMode="false" />
+
+    <ListView
+        android:id="@+id/merchant2ListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

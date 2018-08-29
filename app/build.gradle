@@ -28,17 +28,11 @@ android {
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.afollestad.material-dialogs:core:0.9.4.3'
-
-
-
-
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-    compile project(":spacetablayout")
-
+    compile project(':spacetablayout')
     //compile 'eu.long1:spacetablayout:1.0.4'
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:support-v4:25.4.0'
@@ -50,7 +44,10 @@ dependencies {
     compile 'com.github.barteksc:android-pdf-viewer:2.0.3'
     compile 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
     compile 'me.dm7.barcodescanner:zbar:1.9.8'
-
+    compile 'com.github.fabriciorod:material-buttons:1.2'
+    //import file picker
+    compile 'com.github.angads25:filepicker:1.1.1'
+    //pull to update
     testCompile 'junit:junit:4.12'
-
+    implementation files('libs/jxl.jar')
 }

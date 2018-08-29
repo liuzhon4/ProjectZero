@@ -61,6 +61,7 @@ public class FragmentD extends Fragment {
             "核查测距",
             "版本管理",
             "卷烟查询",
+            "三户管理",
             "可拓展功能"};
 
     int[] imageID = {
@@ -73,6 +74,7 @@ public class FragmentD extends Fragment {
             R.drawable.img_distance,
             R.drawable.img_version_control,
             R.drawable.img_scan_for_price,
+            R.drawable.img_cabinet,
             R.drawable.img_more};
 
     private static final int ACTIVITY_REQUEST_CODE_SCAN = 0;
@@ -152,6 +154,10 @@ public class FragmentD extends Fragment {
                 if(Arrays.asList(list).get(position).equals("卷烟查询")) {
                     Intent i = new Intent(getContext(), SimpleScannerActivity.class);
                     startActivityForResult(i, ACTIVITY_REQUEST_CODE_SCAN);
+                }
+                if(Arrays.asList(list).get(position).equals("三户管理")) {
+                    Intent i = new Intent(getContext(), MerchantActivity.class);
+                    startActivity(i);
                 }
                 if(Arrays.asList(list).get(position).equals("可拓展功能")) {
                     Toast.makeText(getActivity(),

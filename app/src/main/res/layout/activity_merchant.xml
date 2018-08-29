@@ -6,4 +6,42 @@
     android:layout_height="match_parent"
     tools:context="demo.projectZero.MerchantActivity">
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginTop="8dp"
+        android:text="大户管理"
+        android:textSize="30sp"
+        android:theme="@style/MaterialButton.Green"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="无证户管理"
+        android:textSize="30sp"
+        android:theme="@style/MaterialButton.Red"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="164dp"
+        android:text="异常户管理"
+        android:textSize="30sp"
+        android:theme="@style/MaterialButton.Cyan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

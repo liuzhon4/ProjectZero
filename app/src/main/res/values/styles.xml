@@ -23,4 +23,16 @@
 
     </style>
 
+    <style name="Merchant1Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/mb_green500</item>
+    </style>
+
+    <style name="Merchant2Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/mb_red500</item>
+    </style>
+
+    <style name="Merchant3Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/mb_cyan500</item>
+    </style>
+
 </resources>

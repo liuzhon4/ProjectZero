@@ -89,8 +89,49 @@
             android:alwaysRetainTaskState="true"
             android:label="核查测距"
             android:launchMode="singleInstance"
-            android:parentActivityName="demo.projectZero.FrontActivity"
-            />
+            android:parentActivityName="demo.projectZero.FrontActivity" />
+        <activity
+            android:name="demo.projectZero.MerchantActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="三户管理"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.FrontActivity" />
+        <activity
+            android:name="demo.projectZero.Merchant1Activity"
+            android:alwaysRetainTaskState="true"
+            android:label="大户管理"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.MerchantActivity" />
+        <activity
+            android:name="demo.projectZero.Merchant2Activity"
+            android:alwaysRetainTaskState="true"
+            android:label="无证户管理"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.MerchantActivity" />
+        <activity
+            android:name="demo.projectZero.Merchant3Activity"
+            android:alwaysRetainTaskState="true"
+            android:label="异常户管理"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.MerchantActivity" />
+        <activity
+            android:name="demo.projectZero.SingleMerchant1"
+            android:alwaysRetainTaskState="true"
+            android:label="大户管理"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.Merchant1Activity" />
+        <activity
+            android:name="demo.projectZero.SingleMerchant2"
+            android:alwaysRetainTaskState="true"
+            android:label="无证户管理"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.Merchant2Activity"/>
+        <activity
+            android:name="demo.projectZero.SingleMerchant3"
+            android:alwaysRetainTaskState="true"
+            android:label="异常户管理"
+            android:launchMode="singleInstance"
+            android:parentActivityName="demo.projectZero.Merchant3Activity" />
     </application>
 
 </manifest>
